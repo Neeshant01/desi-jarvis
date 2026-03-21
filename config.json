@@ -1,0 +1,11 @@
+{
+  "assistant_name": "Jarvis",
+  "wake_word": "hey jarvis",
+  "voice": "female",
+  "language": "en",
+  "openai_enabled": false,
+  "plugins_dir": "plugins",
+  "task_file": "tasks.json",
+  "memory_file": "memory.json",
+  "history_file": "history.txt"
+}

@@ -1,0 +1,7 @@
+speechrecognition
+pyttsx3
+pyautogui
+pillow
+openai
+requests
+schedule
