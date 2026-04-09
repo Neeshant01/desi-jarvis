@@ -33,7 +33,7 @@ class VoiceAssistant:
             self.engine.setProperty("voice", selected.id)
 
     def speak(self, text):
-        print(f"Jarvis: {text}")
+        print(f"{self.assistant_name}: {text}")
         try:
             self.engine.say(text)
             self.engine.runAndWait()
