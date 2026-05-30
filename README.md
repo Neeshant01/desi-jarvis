@@ -1,31 +1,47 @@
-# Desi Jarvis
+# Desi Jarvis: Modular Python Desktop Voice Assistant
 
-A modular Python desktop assistant prototype with voice commands, reminders, browser actions, system automation, and plugin-ready structure.
+![GitHub license](https://img.shields.io/github/license/Neeshant01/desi-jarvis?style=flat-square) ![GitHub top language](https://img.shields.io/github/languages/top/Neeshant01/desi-jarvis?style=flat-square) ![GitHub stars](https://img.shields.io/github/stars/Neeshant01/desi-jarvis?style=flat-square)
 
-## Problem It Solves
+## Overview
 
-Many desktop assistant demos are either too shallow to extend or too messy to learn from. Desi Jarvis is a simple, readable prototype that shows how voice input, command routing, automation, and memory can work together in one Python project.
+**Desi Jarvis** is a **modular Python desktop assistant** prototype designed for voice commands, system automation, and personalized interactions. It offers a flexible and extensible framework for building intelligent desktop applications, focusing on clear architecture and ease of learning. This project demonstrates how voice input, command routing, automation, and memory can be integrated into a single Python solution.
+
+## Problem Solved
+
+Many existing desktop assistant demonstrations are either too complex to extend or lack a clear, understandable structure for learning. Desi Jarvis addresses this by providing a simple, readable, and modular prototype. It serves as an educational resource and a foundation for developers looking to implement voice-controlled automation and intelligent features on their desktops.
 
 ## Key Features
 
-- Wake-word based voice interaction
-- Text-to-speech output
-- Browser search and website opening
-- Application launch and close actions
-- Windows system commands like shutdown, restart, sleep, and lock
-- File and folder utilities
-- Reminder scheduling and lightweight memory storage
-- Optional OpenAI question-answer flow
-- Plugin loading from a local `plugins/` directory
+*   **Wake-word Based Voice Interaction**: Activate the assistant using a customizable wake word.
+*   **Text-to-Speech Output**: Provides audible responses and feedback.
+*   **Browser Automation**: Perform web searches and open websites directly via voice commands.
+*   **Application Control**: Launch and close desktop applications.
+*   **Windows System Commands**: Execute system-level actions such as shutdown, restart, sleep, and lock (primarily for Windows environments).
+*   **File and Folder Utilities**: Manage files and directories with voice commands.
+*   **Reminder Scheduling**: Set and manage reminders with lightweight memory storage.
+*   **Optional OpenAI Integration**: Extend capabilities with an optional question-answering flow using OpenAI.
+*   **Plugin System**: Easily extend functionality by loading custom Python plugins from a dedicated directory.
 
 ## Tech Stack
 
-- Python
-- SpeechRecognition
-- pyttsx3
-- PyAutoGUI
-- Requests
-- JSON-based local storage
+Desi Jarvis is built using the following technologies:
+
+*   **Core Language**: Python
+*   **Speech Recognition**: `SpeechRecognition` library
+*   **Text-to-Speech**: `pyttsx3`
+*   **GUI Automation**: `PyAutoGUI`
+*   **Web Requests**: `Requests`
+*   **Data Storage**: JSON-based local storage
+
+## Architecture Overview
+
+The project is structured to promote modularity and clarity:
+
+*   `main.py`: The main entry point for the assistant.
+*   `config.json`: Configuration file for assistant settings.
+*   `requirements.txt`: Lists all Python dependencies.
+*   `assistant/`: Contains core assistant modules (`automation.py`, `brain.py`, `commands.py`, `voice.py`).
+*   `plugins/`: Directory for custom Python plugins.
 
 ## Project Structure
 
@@ -45,104 +61,89 @@ Many desktop assistant demos are either too shallow to extend or too messy to le
 
 ## Requirements
 
-- Python 3.10+
-- Windows is the primary target environment for automation commands in the current version
-- A working microphone for voice interaction
+To run Desi Jarvis, you will need:
+
+*   Python 3.10+
+*   A working microphone for voice interaction.
+*   **Operating System**: Windows is the primary target environment for automation commands in the current version.
 
 ## Installation
 
-1. Create and activate a virtual environment.
-
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-2. Install dependencies.
-
-```bash
-pip install -r requirements.txt
-```
-
-3. If needed, install platform-specific audio dependencies such as PyAudio.
+1.  **Create and Activate a Virtual Environment**:
+    ```bash
+    python -m venv venv
+    # On Windows:
+    venv\Scripts\activate
+    # On macOS/Linux:
+    source venv/bin/activate
+    ```
+2.  **Install Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+3.  **Platform-Specific Audio Dependencies**: If necessary, install `PyAudio` or other platform-specific audio libraries.
 
 ## Configuration
 
-Edit `config.json` to control:
+Edit `config.json` to customize the assistant:
 
-- assistant name
-- wake word
-- preferred voice
-- language
-- plugin directory
-- local memory and history files
+*   `assistant name`
+*   `wake word`
+*   `preferred voice`
+*   `language`
+*   `plugin directory`
+*   `local memory` and `history files`
 
-Optional OpenAI usage:
+**Optional OpenAI Usage**:
 
-- set `OPENAI_API_KEY` in your environment
-- note that the current implementation uses a legacy OpenAI Python client pattern and may need updates depending on the installed SDK version
+*   Set `OPENAI_API_KEY` in your environment variables.
+*   *Note*: The current OpenAI integration uses a legacy client pattern and may require updates depending on your installed SDK version.
 
 ## Usage
 
-Run the assistant:
+To start the assistant, run:
 
 ```bash
 python main.py
 ```
 
-Example commands:
+**Example Commands**:
 
-- `Hey Jarvis, open Chrome`
-- `Hey Jarvis, search Google for Python decorators`
-- `Hey Jarvis, search YouTube for desktop assistant demos`
-- `Hey Jarvis, open website github.com`
-- `Hey Jarvis, remind me at 16:00 to take a break`
-- `Hey Jarvis, set voice male`
-- `Hey Jarvis, shutdown`
+*   `Hey Jarvis, open Chrome`
+*   `Hey Jarvis, search Google for Python decorators`
+*   `Hey Jarvis, search YouTube for desktop assistant demos`
+*   `Hey Jarvis, open website github.com`
+*   `Hey Jarvis, remind me at 16:00 to take a break`
+*   `Hey Jarvis, set voice male`
+*   `Hey Jarvis, shutdown`
 
 ## Plugins
 
-The assistant looks for Python files inside the `plugins/` directory. Each plugin should expose a `register(brain)` function.
+The assistant automatically discovers and loads Python files within the `plugins/` directory. Each plugin should expose a `register(brain)` function to integrate with the assistant's core functionalities.
 
 ## Limitations
 
-- Current automation helpers are mostly Windows-specific
-- Voice recognition quality depends on microphone and ambient noise
-- OpenAI integration is optional and not production-hardened
-- Reminder scheduling is lightweight and best suited for experimentation
-
-## Demo and Screenshot Plan
-
-Suggested demo title:
-
-- `Desi Jarvis Demo: Voice Commands and Desktop Automation in Python`
-
-Suggested screenshot filenames:
-
-- `docs/images/command-loop.png`
-- `docs/images/config-example.png`
-- `docs/images/plugin-structure.png`
-
-Suggested Open Graph preview idea:
-
-- Terminal-style command view with a microphone icon and the title `Desi Jarvis`
+*   **Platform Specificity**: Current automation helpers are predominantly Windows-specific.
+*   **Voice Recognition**: Quality is dependent on microphone hardware and ambient noise levels.
+*   **OpenAI Integration**: Optional and not designed for production-hardened use.
+*   **Reminder System**: Lightweight and best suited for experimental purposes.
 
 ## Roadmap
 
-- Improve plugin examples and extension docs
-- Add better command parsing and intent handling
-- Improve cross-platform support
-- Modernize optional LLM integration paths
+Future development areas include:
+
+*   Improving plugin examples and documentation for easier extension.
+*   Enhancing command parsing and intent handling for more natural interactions.
+*   Expanding cross-platform support beyond Windows.
+*   Modernizing optional LLM integration paths for improved performance and features.
 
 ## Contributing
 
-Contributions are welcome for maintainability, documentation, and safer automation behavior.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+Contributions are welcome, especially for improving maintainability, documentation, and safer automation behaviors. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for detailed guidelines.
 
 ## License
 
-This repository is available under the [MIT License](LICENSE).
+This project is released under the [MIT License](LICENSE).
 
 ## Author
 
