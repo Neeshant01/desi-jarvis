@@ -1,0 +1,15 @@
+{
+  "name": "jarvis-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:renderer": "npm --prefix src/renderer run dev",
+    "build:renderer": "npm --prefix src/renderer run build",
+    "dev:backend": "uv run python3 src/core/server.py",
+    "install:backend": "uv pip install -e .",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:renderer\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

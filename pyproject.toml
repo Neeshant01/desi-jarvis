@@ -1,0 +1,21 @@
+[project]
+name = "jarvis-core"
+version = "0.1.0"
+description = "J.A.R.V.I.S. Core Local Agent"
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.28.0",
+    "cryptography>=42.0.0",
+    "pyautogui>=0.9.54",
+    "pynput>=1.7.6",
+    "mss>=9.0.1",
+    "playwright>=1.42.0",
+    "websockets>=12.0",
+    "ujson>=5.9.0",
+    "Pillow>=10.2.0",
+    "python-dotenv>=1.0.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
