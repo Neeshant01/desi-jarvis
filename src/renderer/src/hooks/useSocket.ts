@@ -158,7 +158,7 @@ export const useSocket = (url: string = import.meta.env.VITE_WS_URL || 'ws://loc
   const reconnectCountRef = useRef(0);
   const maxReconnectRetries = 5;
   const lastPlayedAudioTextRef = useRef<string>("");
-  const latencyTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const latencyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   
   const setStatus = useJarvisStore((state: any) => state.setStatus);
   const updateMetrics = useJarvisStore((state: any) => state.updateMetrics);

@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { useSocket } from './hooks/useSocket';
 import { useJarvisStore } from './store/useStore';
 import { CoreScene } from './components/CoreScene';
-import { CoreOrb } from './components/CoreOrb';
 import { HudRings } from './components/HudRings';
 import { HexGrid } from './components/HexGrid';
 import { ParticleField } from './components/ParticleField';
