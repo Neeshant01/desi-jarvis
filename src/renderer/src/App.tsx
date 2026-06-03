@@ -193,33 +193,21 @@ export const App: React.FC = () => {
       </div>
 
       {/* AI Video Core (WhatsApp Video) */}
-      <div style={{
-        position: 'absolute',
-        top: '40%',
-        left: '50%',
-        width: '320px',
-        height: '320px',
-        zIndex: 5,
-        transform: `translate(-50%, -50%) perspective(1000px) rotateX(${-5 - mouse.y * 10}deg) rotateY(${mouse.x * 10}deg)`,
-        borderRadius: '50%',
-        overflow: 'hidden',
-        boxShadow: '0 0 60px rgba(0, 255, 255, 0.4), inset 0 0 30px rgba(0, 255, 255, 0.6)',
-        border: '2px solid rgba(0, 255, 255, 0.8)',
-      }}>
+      <div 
+        className="video-core-wrapper"
+        style={{
+          transform: `translate(-50%, -50%) perspective(1000px) rotateX(${-5 - mouse.y * 10}deg) rotateY(${mouse.x * 10}deg)`
+        }}
+      >
         <video 
+          className="video-core-hologram"
           src={CoreVideoAsset}
           autoPlay 
           loop 
           muted 
           playsInline
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            mixBlendMode: 'screen',
-            opacity: 0.95
-          }}
         />
+        <div className="video-core-scanline" />
       </div>
 
       {/* Center Voice Wave */}

@@ -153,7 +153,7 @@ const playBase64Audio = (base64Audio: string) => {
   }
 };
 
-export const useSocket = (url: string = 'ws://localhost:8000/ws') => {
+export const useSocket = (url: string = import.meta.env.VITE_WS_URL || 'ws://localhost:8000/ws') => {
   const socketRef = useRef<WebSocket | null>(null);
   const reconnectCountRef = useRef(0);
   const maxReconnectRetries = 5;
